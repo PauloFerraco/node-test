@@ -5,7 +5,7 @@ export class Database {
 
 	async list(search) {
 		let videos
-console.log(search);
+
 		if(search){
 			videos = await sql`select * from videos where title ilike ${'%'+search+'%'}%`
 		}else{
