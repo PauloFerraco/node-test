@@ -10,8 +10,9 @@ const database = new Database()
 // 	return 'hello world';
 // })
 
-server.get('/videos', async () => {
-	const videos = await database.list()
+server.get('/videos', async (request) => {
+	const search = request.query.search
+	const videos = await database.list(search)
 	return videos
 })
 
