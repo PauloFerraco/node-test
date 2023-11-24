@@ -7,10 +7,11 @@ export class Database {
 		let videos
 
 		if(search){
-			videos = await sql`select * from videos where title ilike ${'%'+search+'%'}%`
+			videos = await sql`select * from videos where title ilike ${'%'+search+'%'}`
 		}else{
 			videos = await sql`select * from videos`
 		}
+		return videos
 	}
 
 	async create(video){
